@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -15,6 +14,7 @@ class App extends Component {
     this.state = {
       lat: 0,
       lon: 0,
+      // city,
       currentWeather: {},
       error: null
     };
@@ -55,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>React-Weather</h1>
+        <h1>Weathered</h1>
         <p>Enter info in one of the sections to get local weather!</p>
         <form onSubmit={e => this.handleSubmit(e)}>
           <label>
@@ -84,15 +84,9 @@ class App extends Component {
         </form>
         <form onSubmit={e => this.handleSubmit(e)}>
           <label>
-            City 
+            City: 
             <input
-              type="Text"
-              // min="-90"
-              // max="90"
-              onChange={e => this.handleLatChange(e)}
-              value={this.state.lat}
-              // required
-            />
+              type="Text"/>
           </label>
           <button type="submit">Get the Weather!</button>
         </form>

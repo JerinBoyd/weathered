@@ -5,6 +5,7 @@ const axios = require("axios");
 //configuration
 require("dotenv").config();
 const { API_KEY } = process.env;
+const { GOOGLEAPI_KEY } = process.env;
 
 
 //creation of stuff
@@ -22,6 +23,23 @@ serverApp.get("/forecast/:lat,:lon", function(request, response) {
     .catch(err => {
       response.status(500).json({
         msg: "your stuff is broke."
+      });
+    });
+});
+
+serverApp.get("/forecast/location/:city,:state", function(request, response) {
+  const { city, state } = request.params;
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city},${state}&key=${GOOGLEAPI_KEY}`;
+  axios
+    .get(url)
+    .then(res => {
+      response.status(200).json(res.data);
+    })
+    .catch(err => {
+      console.log('error', err);
+      response.status(500).json({
+        msg: "your stuff is broke.",
+        error: err
       });
     });
 });

@@ -14,14 +14,16 @@ class App extends Component {
     this.state = {
       lat: 0,
       lon: 0,
-      // city,
+      city: [],
       currentWeather: {},
       error: null
     };
     this.handleLatChange = this.handleLatChange.bind(this);
     this.handleLonChange = this.handleLonChange.bind(this);
+    this.fetchCity = this.fetchCity.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
   handleLatChange(e) {
     this.setState({
       lat: +e.target.value
@@ -32,10 +34,16 @@ class App extends Component {
       lon: +e.target.value
     });
   }
+  handleCityChange(e) {
+    this.setState({
+      city: e.target.value
+    });
+  }
+ 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("jerk");
-    getWeather(this.state.lat, this.state.lon)
+    console.log("test");
+    getWeather(this.state.lat, this.state.lon, this.state.city)
        .then(response => {
         const currentWeather = response.data.currently;
         this.setState({
@@ -48,9 +56,10 @@ class App extends Component {
            error: "Something is Broke"
          });
        });
-   
-    
-  }
+   }
+   fetchCity(e) {
+     console.log('test city')
+   }
 
   render() {
     return (
@@ -82,11 +91,14 @@ class App extends Component {
           </label>
           <button type="submit">Get the Weather!</button>
         </form>
-        <form onSubmit={e => this.handleSubmit(e)}>
+        <form onSubmit={e => this.fetchCity(e)}>
           <label>
             City: 
             <input
-              type="Text"/>
+              type="Text"
+              onChange={e => this.handleCityChange(e)}
+              value={this.state.city}
+              />
           </label>
           <button type="submit">Get the Weather!</button>
         </form>

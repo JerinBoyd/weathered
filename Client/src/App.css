@@ -1,0 +1,21 @@
+.content-cen {
+    margin-top: 10rem;
+}
+
+.panel {
+    width: panel-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.title {
+    font-family: cursive;
+    font-weight: bold; 
+  
+}
+.page-color {
+    background-color: #92a8d1;
+}
+
+.placeholder {
+    opacity: inherit;
+}

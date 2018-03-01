@@ -13,7 +13,7 @@ const { GOOGLEAPI_KEY } = process.env;
 const serverApp = express();
 const port = process.env.PORT || 5000;
 
-serverApp.use(express.static('client/build'));
+serverApp.use(express.static('Client/build'));
 
 serverApp.get("/forecast/:lat,:lon", function(request, response) {
   const { lat, lon } = request.params;
@@ -48,7 +48,7 @@ serverApp.get("/forecast/location/:city,:state", function(request, response) {
 });
 
 serverApp.get('*', (request, response) => {
-     response.sendFile('index.html', {root: path.resolve('client/build')});
+     response.sendFile('index.html', {root: path.resolve('Client/build')});
   });
 serverApp.listen(port, () => {
   console.log("now listening on port ${port}");

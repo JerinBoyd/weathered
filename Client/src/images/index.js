@@ -1,13 +1,13 @@
-import rain from './rain.png';
+// import rain from './rain.png';
 
 
-const selection = (name) => {
-    switch(name){
-        case "rain":
-           return rain;
-        default:
-           return rain;
-    }
-}
+// const selection = (name) => {
+//     switch(name){
+//         case "rain":
+//            return rain;
+//         default:
+//            return rain;
+//     }
+// }
 
-export default selection;
+// export default selection;

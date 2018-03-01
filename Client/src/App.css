@@ -19,3 +19,6 @@
 .placeholder {
     opacity: inherit;
 }
+.ul {
+    list-style-type: none;
+}

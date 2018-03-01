@@ -10,7 +10,7 @@ import { convertTimestamp } from './utils';
 const CurrentWeather = props => {
     return (
       <section>
-        <ul>
+        <ul className='ul'>
           <li> Time: {convertTimestamp(props.time)}</li>
           <li>Summary: {props.summary}</li>
           {/* <li>Icon: <img src={images(props.icon)} alt={props.icon}/> </li> */}
